@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Tool for IoT Platform</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- jQuery -->
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <!-- bootstarp -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Paho -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script type="text/javascript" src="js/client.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Test Tool for IoT Platform</h2>
+
+    <form class="auth-form form-horizontal" id ="ports">
+      <div class="form-group row">
+        <label for="orgIdBox" class="col-sm-2 control-label">組織ID :</label>
+        <div class="col-sm-10">
+          <input type="text" name="org" id="orgIdBox" class="form-control"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="deviceTypeBox" class="col-sm-2 control-label">デバイスタイプ :</label>
+        <div class="col-sm-10">
+          <input type="text" name="deviceType" id="deviceTypeBox" class="form-control"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="deviceIdBox" class="col-sm-2 control-label">デバイスID :</label>
+        <div class="col-sm-10">
+          <input type="text" name="deviceId" id="deviceIdBox" class="form-control"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="tokenBox" class="col-sm-2 control-label">認証トークン :</label>
+        <div class="col-sm-10">
+          <input type="password" name="token" id="tokenBox" class="form-control"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="msgBox" class="col-sm-2 control-label">Message :</label>
+        <div class="col-sm-10">
+          <input type="text" name="message" id="msgBox"  placeholder="Enter Message" class="form-control"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="port" class="col-sm-2 control-label">ポート :</label>
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="radio" name="port" value="443"> 443
+          <input type="radio" name="port" value="8883"> 8883
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="button" class="btn btn-success" id="str-btn" name="start-btn" value="Start"  />
+          <input type="button" class="btn btn-info" id="stp-btn" name="stop-btn" value="Stop"/>
+        </div>
+      </div>
+    </form>
+    <div class="form-group1 row">
+      <div class="col-sm-4 control-label">
+        <div id="sending">データ送信中です</div>
+        <div id="stopped">停止しました</div>
+      </div>
+      <div class="col-sm-offset-2 col-sm-8">
+        <h3>MQTT Log</h3>
+        <p id="sMsg"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
